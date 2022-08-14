@@ -1,0 +1,3 @@
+﻿class Beer extends Uploadpicture {
+
+}

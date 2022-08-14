@@ -1,0 +1,286 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject ApplicationDbContext Context
+
+@{
+    var name = "";
+    // var image = "";
+    var picture = "";
+
+    if (SignInManager.IsSignedIn(User))
+    {
+       
+        var id = UserManager.GetUserId(User);
+        var user = Context.TUsers.Where(u => u.IdUser.Equals(id)).ToList();
+        if (user.Count.Equals(0))
+        {
+            name = "PDHN";
+        }
+        else
+        {
+            name = $"{user[0].Name} {user[0].LastName}";
+           // image = $"{user[0].Image}";
+            picture = "data:image/jpg;base64," + Convert.ToBase64String(user[0].Image, 0, user[0].Image.Length);
+
+        }
+
+        
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["Title"] - Zythum Beer Network</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="~/img/hop-icon-24.jpg">
+    
+    
+
+    <!--=====================================================
+        CSS PLUGINS
+        ======================================================-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Latest compiled and minified SELECT2.org -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+   <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css"
+        integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous"> -->
+    <link href="~/lib/fontawesome-web/css/all.css" rel="stylesheet">
+        
+
+    <!-- jdSlider -->
+    <link rel="stylesheet" href="~/css/plugins/jquery.jdSlider.css">
+
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <!--=====================================================
+        JS PLUGINS
+        ======================================================-->
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Fontawesome 
+    <script src="https://kit.fontawesome.com/22d3587711.js" crossorigin="anonymous"></script> -->
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jdSlider -->
+    <script src="~/js/plugins/jquery.jdSlider-latest.js"></script>
+
+    <!-- jquery Pagination -->
+    <script src="~/js/plugins/pagination.min.js"></script>
+
+    <!-- jquery Scrollrama -->
+    <script src="~/js/plugins/jquery.superscrollorama.js"></script>
+    <script src="~/js/plugins/TweenMax.min.js"></script>
+
+    <!-- Scrollup -->
+    <script src="~/js/plugins/scrollUP.js"></script>
+    <script src="~/js/plugins/jquery.easing.js"></script>
+
+    <script src="~/js/infinite.js"></script>
+
+</head>
+
+<body>
+
+    <!--=====================================================
+    HEADER 
+    ======================================================-->
+    <header class="container-fluid">
+
+        <div class="container p-0">
+
+            <div class="row">
+
+                <!-- LOGO -->
+                <div class="col-7 col-sm-8 col-md-5 col-lg-4 pt-1 p-xl-0">
+                    <a href="@Url.Action("Index","Home")">
+                        <img src="~/img/Logobeerapp2.png" alt="Application Logo" class="img-fluid logotype">
+                    </a>
+                    
+                </div>
+
+                <!-- SEARCH -->
+                <div class="d-none d-md-block col-4 col-lg-4 p-3">
+                     <form asp-area="Beers" asp-controller="Beers" asp-action="Beers" method="get">
+                    <div class="input-group input-group-sm pt-2">
+                        <input type="text" class="form-control" placeholder="Find a beer...">
+
+							<div class="input-group-append">
+
+								<span class="input-group-text">
+									<button type="submit">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+
+							</div>
+                    </div>
+                   
+						
+					</form>
+                    
+                </div>
+
+                 <!-- MENU-->
+                <div class="col-2 col-md-1 col-lg-2 p-3">
+
+                    <!-- MENU BUTTON -->
+                    <div class="float-right pt-2">
+                        <i class="fas fa-bars lead"></i>
+                    </div>
+
+                </div>
+
+                <!-- PERFIL -->
+                <div class="col-3 col-sm-2 col-md-1 col-lg-2 p-2">
+                    <div>
+                        <a href="@Url.Action("Perfil","Home")">
+                            <img src="@picture" alt="Perfil Pic"
+                                class="img-fluid perfil_pic lead float-left pt-2 mr-1">
+                        </a> 
+                        <p class="pt-3">Hello @name!</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <br class="d-block d-md-none"><br><br><br>
+
+
+    @RenderBody()
+
+
+    <br>
+
+<!--=====================================
+FOOTER
+======================================-->
+
+    <footer class="container-fluid py-5 d-none d-md-block">
+        
+        <div class="container">
+            
+            <div class="row">
+
+                <!-- LOGO -->
+                <div class="col-6 col-sm-8 col-md-7 col-xl-6 pt-1 p-xl-0">
+
+                    <a href="@Url.Action("Index","Home")">
+
+                        <img src="~/img/Logobeerapp2.png" alt="Application Logo" class="img-fluid logotype" width="45%">
+
+                    </a>
+
+                </div>
+
+                <div class="d-none d-lg-block col-lg-1 col-xl-2"></div>
+
+                <!-- NEWLETTER -->
+
+                <div class="col-md-5 col-lg-5 col-xl-4 pt-3">
+                    
+                    <h6 class="text-white">Inscríbete en nuestro newletter:</h6>
+
+                    <div class="input-group my-4">
+                        
+                        <input type="text" class="form-control" placeholder="Ingresa tu Email">
+
+                        <div class="input-group-append">
+                            
+                            <span class="input-group-text bg-dark text-white">Inscribirse</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="p-0 w-100 pt-2">
+                    
+                        <ul class="d-flex justify-content-left p-0">
+                            
+                            <li>
+                                <a href="https://www.facebook.com" target="_blank">
+                                    <i class="fab fa-facebook-f lead text-white mr-3 mr-sm-4"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-instagram lead text-white mr-3 mr-sm-4"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-twitter lead text-white mr-3 mr-sm-4"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-youtube lead text-white mr-3 mr-sm-4"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-snapchat-ghost lead text-white mr-3 mr-sm-4"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="~/js/script.js" async defer></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Uploadpicture.js" asp-append-version="true"></script>
+    <script src="~/js/Principal.js" asp-append-version="true"></script>
+    <script src="~/js/User.js" asp-append-version="true"></script>
+    <script src="~/js/Brewery.js" asp-append-version="true"></script>
+    <script src="~/js/Beer.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Latest compiled and minified SELECT2.org -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

@@ -1,0 +1,465 @@
+/*============================================================ 
+xlarge devices - screen width equal to or greater than 1366px
+============================================================*/
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+a:visited, a:link, a:focus, a:hover, a:active{
+    list-style: none;
+    text-decoration: none;
+}
+
+/*============================================================ 
+Header
+============================================================*/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;    
+    background: rgba(226, 190, 75, 255); 
+   /*background: rgba(226, 190, 75, .5);*/
+}
+
+header .logotype{
+    width: 45%;
+}
+
+header .perfil_pic{
+    width: 30%;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+header input.search-query {
+    padding-left:26px;    
+    border-radius: 4px;
+}
+
+header form.form-search {
+    position: relative;
+}
+
+header form.form-search:before {
+    content:'';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: rgb(235, 232, 232);    
+    background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png);
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+}
+
+.fa-bars{
+    font-size: 30px;
+}
+
+/*============================================================ 
+Banner
+============================================================*/
+.fade-slider{
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.static-banner{
+    background: rgba(0, 0, 0, 0);    
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+.center {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 300;
+    color: black;
+  }
+
+.img-over-banner {
+    position: absolute;
+    z-index: 1;
+    width: 10%;
+    border-radius: 50%;
+    top: 50%;
+    left: 13%;
+
+}
+
+.text-banner {
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    text-align: left;
+    border-radius: 50%;
+    top: 30%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+
+}
+
+.container-img {
+    position: relative;
+  }
+ 
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, .65);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 35%;
+    text-align:center; 
+    vertical-align: middle;   
+  }
+
+/*============================================================ 
+Menu
+============================================================*/
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(226, 190, 75, .90);
+    overflow-x: hidden;
+    font-weight: 300;
+    display: none;
+    font-size: 34px;
+    line-height: 50px;
+}
+
+.btnClose{
+    position: absolute;
+    top: 100px;
+    right: 25%;
+    color: black;
+}
+
+.menu .nav{
+    margin-top: 10%;
+}
+
+li.sd-active {
+    border-left: 4px solid #ffd900;
+    background-color: #f6f6f6
+}
+
+/*============================================================ 
+Body Activity
+============================================================*/
+
+.thumb-post {
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    width: 150%;
+    max-height: 200px;
+    margin-bottom: 1rem;
+}
+
+.objetfit > img{
+	width: 2000px;
+	height: 3000px;
+	object-fit: none;
+	background-color: rgb(244, 201, 10);
+	border: 1px solid #f3f2f2;
+}
+
+.main-ws-sec {
+    float: left;
+    width: 100%;
+}
+
+body{
+    background-color:#eef3f4;    
+}
+    
+.height-100{
+    height:100vh;
+}
+
+/* .card{
+    width:380px;
+    border:none;
+    height:280px;
+} */
+
+.card {
+    
+    border: none;
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    border-radius: 4px;
+}
+
+.ratings{
+    margin-right:10px;
+}
+
+.ratings i{
+    
+    color:#cecece;
+    font-size:22px;
+}
+
+.rating-color{
+    color:#fbc634 !important;
+}
+
+.review-count{
+    font-weight:400;
+    margin-bottom:2px;
+    font-size:24px !important;
+}
+
+.small-ratings i{
+  color:#cecece;   
+}
+
+.review-stat{
+    font-weight:300;
+    font-size:18px;
+    margin-bottom:2px;
+}
+
+.post_pic{
+    width: 80%;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.div-wrapper {
+   /* height: 200px;*/
+    margin-top: 10px;
+    border: 2px;
+    border-radius: 8px;
+}
+
+.process-comm {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.spinner {
+    margin: 0 auto 0;
+    width: 80px;
+    text-align: center;
+    height: 80px;
+    border-radius: 100px;
+    background-color: #fff;
+    line-height: 80px;
+    border: 1px solid #e1e1e1;
+    cursor: pointer;
+}
+
+.column {
+    flex: 25%;
+    padding: 5px;
+}
+
+
+/*============================================================ 
+Side bar
+============================================================*/
+
+.perfil-summary .img-pic{
+    width: 30%;
+    vertical-align: middle;
+}
+
+.item {
+    margin-bottom: 16px;
+    display: block;
+}
+
+.item .logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 13%;
+    position: relative;
+}
+
+.item .text {
+    display: inline-block;
+    vertical-align: top;
+    width: 84%;
+    padding: 0 0 0 22px;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.sidebar-item i {
+    font-size: 1.5em;
+    margin-right: 5px;
+    vertical-align: bottom
+}
+
+.sidebar-item {
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/*============================================================ 
+footer
+============================================================*/
+footer{
+        
+    background: rgba(226, 190, 75, 255);
+   
+}
+
+/*=============================================
+SCROLL UP
+=============================================*/
+
+#scrollUp{
+	bottom: 20px;
+	right: 20px;
+	width: 50px;
+	height: 50px;
+	background: url(../img/arrow.jpg);
+}
+
+/*============================================================ 
+LOGIN
+============================================================*/
+.divider:after, .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
+
+/*============================================================ 
+large devices - screen width equal to or greater than 1024px
+============================================================*/
+@media (max-width:1199px) and (min-width:992px) {
+
+    .menu .nav{
+        margin-top: 15%;
+    }
+
+}
+
+/*============================================================ 
+medium devices - screen width equal to or greater than 768px
+============================================================*/
+@media (max-width:991px) and (min-width:768px) {
+
+    header .logotype{
+        width: 50%;
+    }
+
+    header .perfil_pic{
+        width: 120%;
+        border-radius: 50%;
+    }
+
+    .menu .nav{
+        margin-top: 20%;
+    }
+    
+}
+
+/*============================================================ 
+small devices - screen width equal to or greater than 576px
+============================================================*/
+@media (max-width:767px) and (min-width:576px) {
+
+    header .logotype{
+        width: 50%;
+    }
+
+    header .perfil_pic{
+        width: 70%;
+    }
+
+    .fa-bars{
+        font-size: 30px;
+    }
+
+    .fade-slider{
+        height: 83px;
+    }
+
+    .btnClose{
+        
+        top: 60px;
+    }
+
+    .menu .nav{
+        margin-top: 25%;
+    }
+    
+}
+
+/*============================================================ 
+movil  devices - screen width less than 576px
+============================================================*/
+@media (max-width:575px) {
+
+    header .logotype{
+        width: 85%;
+    }
+
+    header .perfil_pic{
+        width: 80%;
+    }
+
+    .fa-bars{
+        font-size: 25px;
+    }
+
+    .fade-slider{
+        height: 62px;
+    }
+
+    .btnClose{
+        font-size: 75%;
+        top: 30px;
+    }
+
+    .menu .nav{
+        margin-top: 25%;
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    
+}

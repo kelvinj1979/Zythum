@@ -1,0 +1,415 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Fiends Activities Page";
+}
+
+
+    <div class="container d-block d-md-none">
+
+        <div class="input-group input-group-sm">
+
+            <input type="text" class="form-control" placeholder="Find beer, brewery and friends">
+
+            <div class="input-group-append">
+
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+
+            </div>
+        </div>
+    </div>
+    
+    <br>
+
+    <!--=====================================
+        DETAIL DATA BODY
+    ======================================-->
+    
+    <div class="container-fluid">
+
+        <div class="container">
+
+            <div class="row">
+                <!-- LEFT COLUMN MENU-->
+                <div class="col-md-3 mt-2">
+                    <div>
+                        <ul class="fa-ul">
+                            <li class="list-group-item"><h6><a href="@Url.Action("Index","Home")">Home</a></h6></li>
+                            <li class="list-group-item sd-active"><i class="fa-solid fa-id-card"></i>  <a asp-route-id="0" asp-area="Principal" asp-page="/Account/Details">My Profile</a></li>
+                            <li class="list-group-item"><i class="fa-solid fa-people-group"></i>  <a href="@Url.Action("Friends","Home")">My Friends</a></li>
+                            <li class="list-group-item"><i class="fa-solid fa-comments"></i>  <a href="@Url.Action("Friends_Activities","Home")">Recent Friend Activity</a></li>                            
+                            <li class="list-group-item"><i class="fa-solid fa-beer-mug-empty"></i>  <a href="@Url.Action("Beer_History","Home")">Beer History</a></li>
+                            <li class="list-group-item"><i class="fa-solid fa-archway"></i>  <a href="@Url.Action("Beer_Place","Home")">Beer Places</a></li>
+                            <li class="list-group-item"><i class="fa-solid fa-computer"></i>  <a href="settings.html">Account Settings</a></li>@*
+                            <li class="list-group-item"><i class="fa-solid fa-door-open"></i>  <a asp-area="Brewery" asp-controller="Brewery" asp-action="Brewery">Brewery</a></li>*@
+                            <li class="list-group-item"><i class="fa-solid fa-door-open"></i>  <a asp-route-id="0" asp-area="Brewery" asp-page="/Account/Register">Add Brewery</a></li>  @*                          
+                            <li class="list-group-item"><i class="fa-solid fa-door-open"></i>  <a asp-area="Beers" asp-controller="Beers" asp-action="Beers">Beers</a></li>*@
+                            <li class="list-group-item"><i class="fa-solid fa-door-open"></i>  <a asp-route-id="0" asp-area="Beers" asp-page="/Account/Register">Add Beer</a></li>
+                            <li class="list-group-item"><i class="fa-solid fa-door-open"></i>  <a asp-area="Users" asp-controller="Users" asp-action="Logout">Logout</a></li>
+                            </ul>
+                    </div>                    
+                </div>
+
+                <!-- MID COLUMN POST-->
+                <!-- POST 1-->
+                
+
+                <div class="col-md-6 p-3 bg-white div-wrapper" >
+                    <div class="row col-12">
+                        <h4>Recent Friend Activity </h4>
+                    </div>
+                    <div class="bg-white div-wrapper card box1">
+
+                        <div class="row col-12">
+                            <div class="col-2 p-2">
+                                <a href="@Url.Action("Perfil","Home")">
+                                <img src="~/img/perfil.jpeg" alt=""
+                                    class="img-fluid post_pic lead float-left pt-2 mr-1"> </a>                          
+                            </div>
+                            <div class="col-10 p-2 mt-4">
+                                <span class="align-bottom">
+                                    <h5><a href="@Url.Action("Perfil","Home")">Aquiles Ortiz</a> is drinking a <a href="beer.html">La Rubina</a> by <a href="brewery.html">Birra Castello</a> at Bulky Bear Training</h5>
+                                </span>  
+                            </div>
+                        </div>
+
+                        <div class="row col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="ratings col-9">
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="col-3">
+                                    <h6 class="review-count text-right">4.5/5</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <figure class="figure mt-1">
+                            <div class="col-12 objetfit">
+                                <a href="posting.html">
+                                <img src="~/img/img_posting/beer1.jpg" class="figure-img img-fluid rounded img-fluid thumb-post" alt="A corners in a figure."></a>
+                            </div>
+                            <figcaption class="figure-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel qui illum voluptatibus, itaque, tempore iure esse repudiandae fugit, necessitatibus beatae sint ad ipsum unde architecto dolore quam rerum quasi delectus?</figcaption>
+                        </figure> 
+                        
+                        <hr class="mb-4" style="border: 1px solid #e2be4b">
+
+                        <div class="row col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="collapse" data-target="#demo1">
+                                        <img src="~/img/comments-xxl.png" alt="" width="15%">
+                                    </button>                                 
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo">
+                                        <img src="~/img/beercup.png" alt="" width="15%">
+                                    </button>                                
+                                </div> 
+
+                            </div>
+                        </div>
+
+                        <div class="row col-12 p-2">
+                            <div class="d-flex justify-content-between align-items-right">
+                                <div class="col-4">
+                                    2 hour ago                                
+                                </div>
+                                <div class="col-8 text-right">
+                                <a href="@Url.Action("Posting","Home")">View Detailed Check-in</a>                               
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="demo" class="row collapse col-12 p-2">
+                            <div class="d-flex justify-content-between align-items-right border">
+                                <div class="col-1 p-1 text-right">
+                                   <h6>5</h6>                                 
+                                </div>
+                                <div class="col-1 text-left">
+                                    <img  src="~/img/beercup.png" alt="" width="100%">                                
+                                 </div>
+                                <div class="col-10 p-1">
+                                    <img src="~/img/perfil3.jpg" alt="" width="5%">                                
+                                    <img src="~/img/perfil4.jpg" alt="" width="5%">                                
+                                    <img src="~/img/perfil.jpeg" alt="" width="5%">                                                                                                         
+                                    + 2 more...
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="demo1" class="row collapse col-12 p-2">
+                            
+                            <div class="col-12 p-1">
+                                <div class="media border p-3">
+                                    <img src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                                    <div class="media-body">
+                                        <h6>John Doe <small><i>Posted on February 19, 2016</i></small></h6>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit officia ex sed a minima iandae tempora.</p>
+                                        <div class="media p-3">
+                                        <img src="https://www.w3schools.com/bootstrap4/img_avatar4.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+                                        <div class="media-body">
+                                            <h6>Jane Doe <small><i>Posted on February 20 2016</i></small></h6>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt mag ipsum ipsa ratione....</p>
+                                        </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>          
+            
+                
+
+                <!-- POST 2-->
+                
+                    <div class="bg-white div-wrapper card box1">
+                        <div class="row col-12">
+                            <div class="col-2 p-2">
+                                <img src="~/img/perfil2.jpg" alt=""
+                                    class="img-fluid post_pic lead float-left pt-2 mr-1">                           
+                            </div>
+                            <div class="col-10 p-2 mt-4">
+                                <span class="align-bottom">
+                                    <h5>Grimaldy Soto is drinking an Erdinger Pikantus by Erdinger Weissbräu at The Irish Pub</h5>
+                                </span>  
+                            </div>
+                        </div>
+
+                        <div class="row col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="ratings col-9">
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star rating-color"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="col-3">
+                                    <h6 class="review-count text-right">3.25/5</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <figure class="figure mt-1">
+                            <div class="col-12 objetfit">
+                                <img src="~/img/img_posting/beer2.jpg" class="figure-img img-fluid rounded img-fluid thumb-post" alt="A corners in a figure.">
+                            </div>
+                            <figcaption class="figure-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel qui illum voluptatibus, itaque, tempore iure esse repudiandae fugit, necessitatibus beatae sint ad ipsum unde architecto dolore quam rerum quasi delectus?</figcaption>
+                        </figure> 
+                        
+                        <hr class="mb-4" style="border: 1px solid #e2be4b">
+
+                        
+                        <div class="row col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="collapse" data-target="#demo1">
+                                        <img src="~/img/comments-xxl.png" alt="" width="15%">
+                                    </button>                                 
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo">
+                                        <img src="~/img/beercup.png" alt="" width="15%">
+                                    </button>                                
+                                </div> 
+
+                            </div>
+                        </div>
+
+                        <div class="row col-12 p-2">
+                            <div class="d-flex justify-content-between align-items-right">
+                                <div class="col-4">
+                                    2 hour ago                                
+                                </div>
+                                <div class="col-8 text-right">
+                                <a href="@Url.Action("Perfil","Home")">View Detailed Check-in</a>                               
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="demo" class="row collapse col-12 p-2">
+                            <div class="d-flex justify-content-between align-items-right border">
+                                <div class="col-1 p-1 text-right">
+                                   <h6>5</h6>                                 
+                                </div>
+                                <div class="col-1 text-left">
+                                    <img  src="~/img/beercup.png" alt="" width="100%">                                
+                                 </div>
+                                <div class="col-10 p-1">
+                                    <img src="~/img/perfil3.jpg" alt="" width="5%">                                
+                                    <img src="~/img/perfil4.jpg" alt="" width="5%">                                
+                                    <img src="~/img/perfil.jpeg" alt="" width="5%">                                                                    
+                                    + 2 more...
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="demo1" class="row collapse col-12 p-2">
+                            
+                            <div class="col-12 p-1">
+                                <div class="media border p-3">
+                                    <img src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                                    <div class="media-body">
+                                        <h6>John Doe <small><i>Posted on February 19, 2016</i></small></h6>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit officia ex sed a minima iandae tempora.</p>
+                                        <div class="media p-3">
+                                        <img src="https://www.w3schools.com/bootstrap4/img_avatar4.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+                                        <div class="media-body">
+                                            <h6>Jane Doe <small><i>Posted on February 20 2016</i></small></h6>
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt mag ipsum ipsa ratione....</p>
+                                        </div>
+                                        </div> 
+                                    </div>
+                                    </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="process-comm">
+                        <div id="loader">
+                            <img src="~/img/example_loading.gif">
+                            LOADING...
+                        </div>
+                    </div>
+                                     
+                </div>
+
+                <!-- RIGTH COLUMN -->
+                <div class="d-none d-lg-block col-md-3 p-3 ml-0 bg-white div-wrapper">
+                    <!-- PERFIL SUMMARY -->
+                    <div class="perfil-summary">
+                        <div>
+                            <div>
+                                <a href="perfil.html">
+                                <img class="img-pic img-fluid lead float-left rounded-circle mr-2"
+                                    src="~/img/perfil.jpeg"
+                                    alt="Lorem ipsum dolor sit amet"></a>
+                            </div>
+                            <div class="mt-2">
+                                <h5>Kelvin Jimenez</h5>
+                                <h6><a href="index.html">Kelvinj1979</a></h6>
+                            </div>
+
+                            <br>
+
+                            <div class="container-fluid p-0 mt-2">
+                                <!-- Control the column width, and how they should appear on different devices -->
+                                <div class="row">
+                                    <div class="col-sm-6 border text-center"><a href="mybeer.html">691 Total</a></div>
+                                    <div class="col-sm-6 border text-center"><a href="mybeer.html">506 Unique</a></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 border text-center"><a href="friends.html">20 Friends</a></div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <p class="small">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam quibusdam minus suscipit
+                                optio, tempore alias impedit aspernatur porro dolorum aliquid laudantium, debitis aut
+                                corporis in totam enim voluptatem voluptatum quae.
+                            </p>
+
+                            <br>
+                            
+                            <div class="box">
+                                <div class="container-fluid p-0">
+                                    <h3>Top Beers</h3>
+                                    <div class="item">
+                                        <a href="/b/erdinger-weissbrau-erdinger-pikantus/1900" class="track-click"
+                                            data-track="sidebar" data-href=":beer/toplist">
+                                            <p class="logo">
+                                                <img src="~/img/img_posting/beer-edinger.jpeg"
+                                                    alt="Erdinger Pikantus label" width="160%">
+                                            </p>
+                                            <p class="text">
+                                                <span class="name">Erdinger Pikantus</span>
+                                                <span class="brewery">Erdinger Weissbräu</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="/b/abita-brewing-company-turbodog/5047" class="track-click"
+                                            data-track="sidebar" data-href=":beer/toplist">
+                                            <p class="logo">
+                                                <img src="~/img/img_posting/beer-turbodog.jpeg"
+                                                    alt="Turbodog label" width="160%">
+                                            </p>
+                                            <p class="text">
+                                                <span class="name">Turbodog</span>
+                                                <span class="brewery">Abita Brewing Company</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="/b/fuller-s-brewery-gale-s-hsb/65555" class="track-click"
+                                            data-track="sidebar" data-href=":beer/toplist">
+                                            <p class="logo">
+                                                <img src="~/img/img_posting/beer-gale.jpeg"
+                                                    alt="Gale's HSB label" width="160%">
+                                            </p>
+                                            <p class="text">
+                                                <span class="name">Gale's HSB</span>
+                                                <span class="brewery">Fuller's Brewery</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="/b/fuller-s-brewery-golden-pride/15068" class="track-click"
+                                            data-track="sidebar" data-href=":beer/toplist">
+                                            <p class="logo">
+                                                <img src="~/img/img_posting/beer-golden.jpeg"
+                                                    alt="Golden Pride label" width="160%">
+                                            </p>
+                                            <p class="text">
+                                                <span class="name">Golden Pride</span>
+                                                <span class="brewery">Fuller's Brewery</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="/b/schneider-weisse-g-schneider-and-sohn-aventinus-tap06/16851"
+                                            class="track-click" data-track="sidebar" data-href=":beer/toplist">
+                                            <p class="logo">
+                                                <img src="~/img/img_posting/beer-avent.jpeg"
+                                                    alt="Aventinus (TAP06) label" width="160%">
+                                            </p>
+                                            <p class="text">
+                                                <span class="name">Aventinus (TAP06)</span>
+                                                <span class="brewery">Schneider Weisse G. Schneider &amp; Sohn</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <p class="more"><a class="track-click" data-track="sidebar"
+                                            data-href=":user/beerhistory" href="/user/Liceysta/beers">See All Beers</a></p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
